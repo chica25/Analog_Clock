@@ -1,16 +1,24 @@
 setInterval(setClock, 1000)
 
-const hour = document.querySelector('[data-hour]')
-const minute = document.querySelector('[data-minute]')
-const second = document.querySelector('[data-second]')
+const dataSecond = document.querySelector('[data-second]')
+const dataMinute = document.querySelector('[data-minute]')
+const dataHour = document.querySelector('[data-hour]')
+
+
 
 function setClock() {
-    const currentDate = new Date()
-    const secondsRatio = currentDate.getSeconds() / 60
-    const minutesRatio = (secondsRatio + currentData.getMinutes()) / 60
-    const hoursRatio = (minutesRatio + currentData.getHours()) / 12
+    let currentDate = new Date()
+    let secondsRatio = currentDate.getSeconds() / 60;
+    let minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60;
+    let hoursRatio = (minutesRatio + currentDate.getHours()) / 12;
+    setRotation(dataSecond, secondsRatio)
+    setRotation(dataMinute, minutesRatio)
+    setRotation(dataHour, hoursRatio)
 }
 
 function setRotation(element, rotationRatio) {
-    element.style.setProperty('--roation', rotationRatio * 360)
+    element.style.setProperty('--rotation', rotationRatio * 360)
 }
+
+setClock();
+
