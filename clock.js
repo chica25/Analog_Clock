@@ -1,10 +1,8 @@
-setInterval(function(){
-    setClock(), changeColor()
-}, 1000)
 
-const dataSecond = document.querySelector('[data-second]')
-const dataMinute = document.querySelector('[data-minute]')
-const dataHour = document.querySelector('[data-hour]')
+const dataSecond = document.querySelector('[data-second]');
+const dataMinute = document.querySelector('[data-minute]');
+const dataHour = document.querySelector('[data-hour]');
+let  i = 0;
 
 function setClock() {
     let currentDate = new Date()
@@ -20,13 +18,13 @@ function setRotation(element, rotationRatio) {
     element.style.setProperty('--rotation', rotationRatio * 360)
 }
 
-setClock();
 
-
-const colors = ["#e1b1of", "#e0cdd0", "#fb9ab6","#448a9a", "#e1b1of", "#e0cdd0", "#fb9ab6","#448a9a"];
-
-let changeColor = function () {
-    let newColorArr = Math.floor(Math.random(colors.length) * 25)
-    let newColor = colors[newColorArr]
-    document.body.style.backgroundColor = newColor
+function changeColor() {
+  let colorArray = ["black", "blue", "brown", "green"];
+  let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+document.getElementById('bg-color').style.backgroundColor = randomColor;
 }
+
+setInterval(function(){
+    setClock(), changeColor()
+}, 1000);
